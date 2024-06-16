@@ -1,6 +1,7 @@
 import prismaClient from "../services/database.js"
 
 const Listar = async (request, response) => {
+    const { descricao } = request.query;
 
     const config = {
         include: {
@@ -8,6 +9,14 @@ const Listar = async (request, response) => {
         },
         orderBy: {
             id: "desc"
+        }
+    }
+
+    if (descricao) {
+        config.where = {
+            descricao: {
+                contains: descricao
+            }
         }
     }
 

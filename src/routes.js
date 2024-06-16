@@ -4,8 +4,11 @@ import controllerCategorias from "./controllers/controller.categoria.js"
 
 const router = Router();
 
+//Categorias
 router.get("/categorias", controllerCategorias.Listar)
 
+
+//Despesas
 router.get("/despesas", controllerDespesas.Listar)
 
 router.get("/despesas/:id", controllerDespesas.ListarId)
